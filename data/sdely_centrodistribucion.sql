@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-02-2017 a las 00:17:01
+-- Tiempo de generación: 22-02-2017 a las 03:20:55
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -45,7 +45,30 @@ CREATE TABLE `centros` (
 --
 
 INSERT INTO `centros` (`id`, `created_at`, `updated_at`, `nombre`, `contacto`, `telefono`, `departamento`, `provincia`, `distrito`, `direccion`, `foto`) VALUES
-(1, '2017-02-21 22:40:43', '0000-00-00 00:00:00', 'Centro de Distribución en Lima', 'Juan Perez', '123456', 15, 127, 1251, 'Calle los 3 tristes tigres', 'f5017864ff0e18eb569dcaf267a73393.jpg');
+(1, '2017-02-21 23:36:28', '0000-00-00 00:00:00', 'Nombre del centro de Distribución', 'Juan Perez', '123456', 15, 127, 1251, 'Calle los 3 tristes tigres', 'f5017864ff0e18eb569dcaf267a73393.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `correos`
+--
+
+CREATE TABLE `correos` (
+  `id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `departamento` int(11) NOT NULL,
+  `correo_1` varchar(100) NOT NULL,
+  `correo_2` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `correos`
+--
+
+INSERT INTO `correos` (`id`, `created_at`, `updated_at`, `departamento`, `correo_1`, `correo_2`) VALUES
+(1, '2017-02-22 01:41:31', '0000-00-00 00:00:00', 12, 'correo_12_1@gmail.com', ''),
+(2, '2017-02-22 01:41:31', '0000-00-00 00:00:00', 15, 'correo_15_1@gmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -57,6 +80,7 @@ CREATE TABLE `registro` (
   `id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `interes` varchar(10) NOT NULL,
   `nombres` varchar(100) NOT NULL,
   `apellidos` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -71,12 +95,13 @@ CREATE TABLE `registro` (
 -- Volcado de datos para la tabla `registro`
 --
 
-INSERT INTO `registro` (`id`, `created_at`, `updated_at`, `nombres`, `apellidos`, `email`, `celular`, `telefono`, `departamento`, `provincia`, `distrito`) VALUES
-(1, '2017-02-22 03:19:54', '2017-02-22 03:19:54', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 2, 11, 107),
-(2, '2017-02-22 03:37:24', '2017-02-22 03:37:24', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251),
-(3, '2017-02-22 03:49:40', '2017-02-22 03:49:40', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251),
-(4, '2017-02-22 03:50:08', '2017-02-22 03:50:08', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251),
-(5, '2017-02-22 03:53:27', '2017-02-22 03:53:27', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251);
+INSERT INTO `registro` (`id`, `created_at`, `updated_at`, `interes`, `nombres`, `apellidos`, `email`, `celular`, `telefono`, `departamento`, `provincia`, `distrito`) VALUES
+(1, '2017-02-22 03:19:54', '2017-02-22 03:19:54', 'centro', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 2, 11, 107),
+(2, '2017-02-22 03:37:24', '2017-02-22 03:37:24', 'centro', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251),
+(3, '2017-02-22 03:49:40', '2017-02-22 03:49:40', 'centro', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251),
+(4, '2017-02-22 03:50:08', '2017-02-22 03:50:08', 'centro', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251),
+(5, '2017-02-22 03:53:27', '2017-02-22 03:53:27', 'centro', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251),
+(6, '2017-02-21 23:39:22', '2017-02-21 23:39:22', 'centro', 'juan', 'quintanilla', 'quintanilla.peru@gmail.com', '123', NULL, 15, 127, 1251);
 
 -- --------------------------------------------------------
 
@@ -2191,6 +2216,12 @@ ALTER TABLE `centros`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `correos`
+--
+ALTER TABLE `correos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `registro`
 --
 ALTER TABLE `registro`
@@ -2224,10 +2255,15 @@ ALTER TABLE `ubigeo_provincia`
 ALTER TABLE `centros`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT de la tabla `correos`
+--
+ALTER TABLE `correos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -12,7 +12,6 @@ class RegistroController extends Controller {
 	public function postDatos(Request $request) {
 		if ($request->isMethod('post')) {
 			$registro = new Registro;
-			$registro->interes = $request->input('interes');
 			$registro->nombres = $request->input('nombres');
 			$registro->apellidos = $request->input('apellidos');
 			$registro->email = $request->input('email');
@@ -23,7 +22,6 @@ class RegistroController extends Controller {
 			$registro->distrito = $request->input('distrito');
 			$registro->save();
 			
-			// evaluar el interes
 			$centros = Centros::where('departamento', $request->input('departamento'))
 					->where('provincia', $request->input('provincia'))
 					->where('distrito', $request->input('distrito'))
