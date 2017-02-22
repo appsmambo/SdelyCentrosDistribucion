@@ -24,8 +24,20 @@
 			<h1>sdely</h1>
 			<p>Admin</p>
 			<div class="row">
-				<div class="col-xs-12">
-					equisde
+				<div class="col-sm-4">
+					<a href="{{URL::to('/admin159753/correos')}}" class="btn btn-info btn-lg">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Correos por provincia
+					</a>
+				</div>
+				<div class="col-sm-4">
+					<a href="{{URL::to('/admin159753/centros')}}" class="btn btn-info btn-lg">
+						<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Centros de distribución
+					</a>
+				</div>
+				<div class="col-sm-4">
+					<a href="{{URL::to('/admin159753/registros')}}" class="btn btn-info btn-lg">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Registros de formulario
+					</a>
 				</div>
 			</div>
 		</div>
