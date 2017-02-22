@@ -7,6 +7,7 @@ Route::group(['prefix' => 'admin159753'], function () {
 	Route::get('/', function () {
 		return view('admin.home');
 	});
+	Route::get('/correos', 'AdminController@getCorreos');
 	Route::get('users', function () {
 		// Matches The "/admin/users" URL
 	});

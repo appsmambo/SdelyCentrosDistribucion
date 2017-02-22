@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Correos;
 use App\Centros;
 use App\Registro;
 use Illuminate\Http\Request;
@@ -9,6 +10,11 @@ use App\Http\Controllers\Controller;
 
 class RegistroController extends Controller {
 
+	public function getcorreos() {
+		$correos = Correos::all();
+		return view('admin.correos')->with('correos', $correos);
+	}
+	
 	public function postDatos(Request $request) {
 		if ($request->isMethod('post')) {
 			$registro = new Registro;
