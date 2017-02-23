@@ -7,7 +7,7 @@
 		<title>Sdely</title>
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="{{ URL::to('/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -20,7 +20,8 @@
 			<h1>sdely</h1>
 			<p>Lista de centros de distribucion cercanos según tu dirección/ubicación:</p>
 			<hr>
-			@foreach($centros as $centro)
+			@if ($interes == 'promotora') :
+			@forelse($centros as $centro)
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">{{$centro->nombre}}</h3>
@@ -36,7 +37,16 @@
 					</div>
 				</div>
 			</div>
-			@endforeach
+			@empty
+			<p>No se encontraron centros de distribucion en tu zona.</p>
+			@endforelse
+			@endif
+			@if ($interes == 'centro') :
+			<p>Mensaje para centro</p>
+			@endif
+			@if ($interes == 'compra') :
+			<p>Mensaje para compra</p>
+			@endif
 		</div>
 	</body>
 </html>

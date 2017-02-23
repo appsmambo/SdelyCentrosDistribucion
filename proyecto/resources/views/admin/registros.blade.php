@@ -20,23 +20,34 @@
 		<div class="container">
 			<h1>sdely</h1>
 			<p>Admin</p>
-			<div class="row">
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/correos')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Correos por provincia
-					</a>
-				</div>
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/centros')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Centros de distribución
-					</a>
-				</div>
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/registros')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Registros de formulario
-					</a>
-				</div>
-			</div>
+			<a href="{{URL::to('/admin159753')}}" class="btn btn-danger">Atrás</a>
+			<a href="{{URL::to('/admin159753/registros-export')}}" class="btn btn-primary">Descargar registros</a>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Interés</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Email</th>
+						<th>Celular</th>
+						<th>Departamento</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($registros as $registro)
+					<tr>
+						<td>{{$loop->iteration}}</td>
+						<td>{{$registro->interes}}</td>
+						<td>{{$registro->nombres}}</td>
+						<td>{{$registro->apellidos}}</td>
+						<td>{{$registro->email}}</td>
+						<td>{{$registro->celular}}</td>
+						<td>{{$registro->departamento}}</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>

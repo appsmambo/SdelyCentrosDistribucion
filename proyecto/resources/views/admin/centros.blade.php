@@ -20,23 +20,30 @@
 		<div class="container">
 			<h1>sdely</h1>
 			<p>Admin</p>
-			<div class="row">
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/correos')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Correos por provincia
-					</a>
-				</div>
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/centros')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Centros de distribución
-					</a>
-				</div>
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/registros')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Registros de formulario
-					</a>
-				</div>
-			</div>
+			<a href="{{URL::to('/admin159753')}}" class="btn btn-danger">Atrás</a>
+			<a href="{{URL::to('/admin159753/centros-crear')}}" class="btn btn-info">Crear registro</a>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th></th>
+						<th>Centro</th>
+						<th>Contacto</th>
+						<th>Departamento</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($centros as $centro)
+					<tr>
+						<td>{{$loop->iteration}}</td>
+						<td><a href="{{URL::to('/admin159753/centros-editar?id=' . $centro->id)}}" class="btn btn-warning">Editar</a></td>
+						<td>{{$centro->nombre}}</td>
+						<td>{{$centro->contacto}}</td>
+						<td>{{$centro->departamento}}</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>

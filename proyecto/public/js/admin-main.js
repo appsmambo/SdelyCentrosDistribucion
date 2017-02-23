@@ -46,28 +46,5 @@ $(function() {
 			$('#distrito').html(html);
 		}
 	});
-	$("#formulario").validate({
-		rules: {
-			nombres:'required',
-			apellidos:'required',
-			dni:{
-				required:true,
-				minlength:8
-			},
-			email:{
-				required:true,
-				email:true
-			},
-			celular:{
-				required:true,
-				digits:true
-			},
-			telefono:{
-				digits:true
-			},
-			departamento:'required',
-			provincia:'required',
-			distrito:'required'
-		}
-	});
+	$("#formulario").validate();
 });

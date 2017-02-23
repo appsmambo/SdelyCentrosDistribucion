@@ -4,7 +4,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sdely</title>
+		<title>Sdely - Admin</title>
+		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 		<link href="{{ URL::to('/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 		<link href="{{ URL::to('/css/main.css') }}" rel="stylesheet" type="text/css">
@@ -19,34 +20,17 @@
 	<body>
 		<div class="container">
 			<h1>sdely</h1>
-			<p>Llena el formulario y en breve llegará un correo a tu bandeja de entrada.</p>
-			<form name="formulario" id="formulario" action="{{ URL::to('/consultaDatos') }}" method="post">
+			<p>Admin - Nuevo centro</p>
+			<form name="formulario" id="formulario" action="{{ URL::to('/admin159753/centros-crear') }}" method="post"  enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group">
-					<select class="form-control" id="interes" name="interes" required>
-						<option value="">Estás interesada en:</option>
-						<option value="promotora">Promotora</option>
-						<option value="centro">Centro de distribbución</option>
-						<option value="compra">Compra de producto</option>
-					</select>
+					<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres" required>
+					<input type="text" class="form-control" id="contacto" name="contacto" placeholder="Contacto" required>
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" required>
-				</div>
-				<div class="form-group">
-					<input type="tel" class="form-control" id="dni" name="dni" placeholder="Dni" required maxlength="8">
-				</div>
-				<div class="form-group">
-					<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-				</div>
-				<div class="form-group">
-					<input type="tel" class="form-control" id="celular" name="celular" placeholder="Celular" required>
-				</div>
-				<div class="form-group">
-					<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+					<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
 				</div>
 				<div class="form-group">
 					<select class="form-control" id="departamento" name="departamento" required>
@@ -69,17 +53,17 @@
 				<div class="form-group">
 					<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" required>
 				</div>
-				<button type="submit" class="btn btn-default">Enviar mis datos</button>
-			</form>
-			<div class="row">
-				<div class="col-xs-12">
-
+				<div class="form-group">
+					<label for="foto">Foto del centro</label>
+					<input type="file" id="foto" name="foto" accept="image/png, image/jpeg, image/gif">
 				</div>
-			</div>
+				<a href="{{URL::to('/admin159753/correos')}}" class="btn btn-default">Cancelar</a>
+				<button type="submit" class="btn btn-primary">Enviar mis datos</button>
+			</form>
+			<script src="{{ URL::to('/js/jquery.min.js') }}"></script>
+			<script src="{{ URL::to('/js/bootstrap.min.js') }}"></script>
+			<script src="{{ URL::to('/js/jquery-validation-1.15.0/jquery.validate.min.js') }}"></script>
+			<script src="{{ URL::to('/js/admin-main.js') }}"></script>
 		</div>
-		<script src="{{ URL::to('/js/jquery.min.js') }}"></script>
-		<script src="{{ URL::to('/js/bootstrap.min.js') }}"></script>
-		<script src="{{ URL::to('/js/jquery-validation-1.15.0/jquery.validate.min.js') }}"></script>
-		<script src="{{ URL::to('/js/main.js') }}"></script>
 	</body>
 </html>

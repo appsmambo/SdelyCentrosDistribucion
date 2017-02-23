@@ -15,12 +15,14 @@ class RegistroController extends Controller {
 			$registro->interes = $request->input('interes');
 			$registro->nombres = $request->input('nombres');
 			$registro->apellidos = $request->input('apellidos');
+			$registro->dni = $request->input('dni');
 			$registro->email = $request->input('email');
 			$registro->celular = $request->input('celular');
 			$registro->telefono = $request->input('telefono');
-			$registro->departamento = $request->input('departamento');
-			$registro->provincia = $request->input('provincia');
-			$registro->distrito = $request->input('distrito');
+			$registro->id_departamento = $request->input('departamento');
+			$registro->id_provincia = $request->input('provincia');
+			$registro->id_distrito = $request->input('distrito');
+			$registro->direccion = $request->input('direccion');
 			$registro->save();
 			
 			// evaluar el interes
@@ -29,7 +31,7 @@ class RegistroController extends Controller {
 					->where('distrito', $request->input('distrito'))
 					->get();
 			
-			return view('mensaje')->with('centros', $centros);
+			return view('mensaje')->with('centros', $centros)->with('interes', $request->input('interes'));
 		}
 	}
 

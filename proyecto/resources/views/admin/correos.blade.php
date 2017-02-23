@@ -7,8 +7,7 @@
 		<title>Sdely - Admin</title>
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<link href="css/main.css" rel="stylesheet" type="text/css">
+		<link href="{{ URL::to('/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -21,27 +20,30 @@
 		<div class="container">
 			<h1>sdely</h1>
 			<p>Admin</p>
-			<div class="row">
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/correos')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Correos por provincia
-					</a>
-				</div>
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/centros')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Centros de distribución
-					</a>
-				</div>
-				<div class="col-sm-4">
-					<a href="{{URL::to('/admin159753/registros')}}" class="btn btn-info btn-lg">
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Registros de formulario
-					</a>
-				</div>
-			</div>
+			<a href="{{URL::to('/admin159753')}}" class="btn btn-danger">Atrás</a>
+			<a href="{{URL::to('/admin159753/correos-crear')}}" class="btn btn-info">Crear registro</a>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th></th>
+						<th>Departamento</th>
+						<th>Correo 1</th>
+						<th>Correo 2</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($correos as $correo)
+					<tr>
+						<td>{{$loop->iteration}}</td>
+						<td><a href="{{URL::to('/admin159753/correos-editar?id=' . $correo->id)}}" class="btn btn-warning">Editar</a></td>
+						<td>{{$correo->departamento}}</td>
+						<td>{{$correo->correo_1}}</td>
+						<td>{{$correo->correo_2}}</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
 		</div>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery-validation-1.15.0/jquery.validate.min.js"></script>
-		<script src="js/main.js"></script>
 	</body>
 </html>
