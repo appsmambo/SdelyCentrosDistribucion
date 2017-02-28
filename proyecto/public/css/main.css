@@ -1,4 +1,25 @@
-
+body.formulario {
+	background:url('../images/fondo-formulario.jpg') no-repeat center top
+}
 label.error {
 	display:none!important
+}
+
+.form-group {
+	margin-bottom:6px
+}
+.form-control {
+	padding:4px
+}
+
+@media (min-width: 992px) {
+	.container {
+		width:780px
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width:780px
+	}
 }

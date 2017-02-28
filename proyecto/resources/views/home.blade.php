@@ -16,67 +16,75 @@
 			var baseUrl = '{{ URL::to('/') }}';
 		</script>
 	</head>
-	<body>
-		<div class="container">
-			<h1>sdely</h1>
-			<p>Llena el formulario y en breve llegará un correo a tu bandeja de entrada.</p>
-			<form name="formulario" id="formulario" action="{{ URL::to('/consultaDatos') }}" method="post">
-				{{ csrf_field() }}
-				<div class="form-group">
-					<select class="form-control" id="interes" name="interes" required>
-						<option value="">Estás interesada en:</option>
-						<option value="promotora">Promotora</option>
-						<option value="centro">Centro de distribbución</option>
-						<option value="compra">Compra de producto</option>
-					</select>
+	<body class="formulario">
+		<section class="container">
+			<div class="row">
+				<div class="col-sm-7 col-sm-offset-5">
+					<p>
+						<br>
+						<img src="{{ URL::to('/images/titulo.png') }}" class="img-responsive center-block">
+						<br>
+					</p>
+					<form name="formulario" id="formulario" action="{{ URL::to('/consultaDatos') }}" method="post">
+						{{ csrf_field() }}
+						<div class="form-group">
+							<select class="form-control" id="interes" name="interes" required>
+								<option value="">Estás interesada en:</option>
+								<option value="promotora">Promotora</option>
+								<option value="centro">Centro de distribbución</option>
+								<option value="compra">Compra de producto</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres" required>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+						</div>
+						<div class="form-group">
+							<input type="tel" class="form-control" id="dni" name="dni" placeholder="Dni" required maxlength="8">
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+						</div>
+						<div class="form-group">
+							<input type="tel" class="form-control" id="celular" name="celular" placeholder="Celular" required>
+						</div>
+						<div class="form-group">
+							<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+						</div>
+						<div class="form-group">
+							<select class="form-control" id="departamento" name="departamento" required>
+								<option value="">DEPARTAMENTO</option>
+								@foreach($departamentos as $departamento)
+								<option value="{{$departamento->id}}">{{$departamento->departamento}}</option>
+								@endforeach
+							</select>
+						</div>
+						<div class="form-group">
+							<select class="form-control" id="provincia" name="provincia" required>
+								<option value="">PROVINCIA</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<select class="form-control" id="distrito" name="distrito" required>
+								<option value="">DISTRITO</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" required>
+						</div>
+						<button type="submit" class="btn btn-default center-block">Enviar mis datos</button>
+					</form>
 				</div>
-				<div class="form-group">
-					<input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres" required>
-				</div>
-				<div class="form-group">
-					<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" required>
-				</div>
-				<div class="form-group">
-					<input type="tel" class="form-control" id="dni" name="dni" placeholder="Dni" required maxlength="8">
-				</div>
-				<div class="form-group">
-					<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-				</div>
-				<div class="form-group">
-					<input type="tel" class="form-control" id="celular" name="celular" placeholder="Celular" required>
-				</div>
-				<div class="form-group">
-					<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
-				</div>
-				<div class="form-group">
-					<select class="form-control" id="departamento" name="departamento" required>
-						<option value="">DEPARTAMENTO</option>
-						@foreach($departamentos as $departamento)
-						<option value="{{$departamento->id}}">{{$departamento->departamento}}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group">
-					<select class="form-control" id="provincia" name="provincia" required>
-						<option value="">PROVINCIA</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<select class="form-control" id="distrito" name="distrito" required>
-						<option value="">DISTRITO</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" required>
-				</div>
-				<button type="submit" class="btn btn-default">Enviar mis datos</button>
-			</form>
+			</div>
+					
 			<div class="row">
 				<div class="col-xs-12">
 
 				</div>
 			</div>
-		</div>
+		</section>
 		<script src="{{ URL::to('/js/jquery.min.js') }}"></script>
 		<script src="{{ URL::to('/js/bootstrap.min.js') }}"></script>
 		<script src="{{ URL::to('/js/jquery-validation-1.15.0/jquery.validate.min.js') }}"></script>
