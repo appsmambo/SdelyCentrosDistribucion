@@ -1,8 +1,22 @@
+body {
+	color:#000;
+	font-family:'Raleway', sans-serif
+}
+a, a:hover, a:focus {
+	color:#000;
+	text-decoration:none
+}
 body.formulario {
 	background:url('../images/fondo-formulario.jpg') no-repeat center top
 }
+body.respuesta {
+	background:url('../images/fondo-respuesta.jpg') no-repeat center top
+}
 label.error {
 	display:none!important
+}
+strong {
+	font-weight:700
 }
 
 .form-group {
@@ -10,6 +24,14 @@ label.error {
 }
 .form-control {
 	padding:4px
+}
+
+.mensaje {
+	border:2px dotted #222;
+	height:280px;
+	margin-bottom:20px;
+	overflow:auto;
+	padding:10px
 }
 
 @media (min-width: 992px) {

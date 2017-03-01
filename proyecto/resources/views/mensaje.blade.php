@@ -5,48 +5,67 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Sdely</title>
-		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
 		<link href="{{ URL::to('/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<link href="{{ URL::to('/css/main.css') }}" rel="stylesheet" type="text/css">
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<script>
+			var baseUrl = '{{ URL::to('/') }}';
+		</script>
 	</head>
-	<body>
-		<div class="container">
-			<h1>sdely</h1>
-			<p>Lista de centros de distribucion cercanos según tu dirección/ubicación:</p>
-			<hr>
-			@if ($interes == 'promotora') :
-			@forelse($centros as $centro)
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">{{$centro->nombre}}</h3>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-sm-9">
-							<p>Contacto: {{$centro->contacto}}<br>Tel: {{$centro->telefono}}<br>Dirección: {{$centro->direccion}}</p>
+	<body class="respuesta">
+		<section class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-4">
+					<p>
+						<br>
+						<img src="{{ URL::to('/images/titulo-respuesta.png') }}" class="img-responsive center-block">
+						<br>
+					</p>
+					<div class="mensaje">
+						@if ($interes == 'promotora')
+						@forelse($centros as $centro)
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-sm-8">
+										<p>
+											<strong>{{$centro->nombre}}</strong><br>
+											Contacto: {{$centro->contacto}}<br>
+											Tel: {{$centro->telefono}}<br>
+											Dirección: {{$centro->direccion}}</p>
+									</div>
+									<div class="col-sm-4">
+										<img src="{{ URL::to('/') }}/images/centros/{{$centro->foto}}" class="img-responsive" alt="">
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="col-sm-3">
-							<img src="{{ URL::to('/') }}/images/centros/{{$centro->foto}}" class="img-responsive" alt="">
-						</div>
+						@empty
+						<h3>No se encontraron centros de distribucion cerca a tu zona.</h3>
+						@endforelse
+						@endif
+						@if ($interes == 'centro')
+						<h3>Nos pondremos en contacto contigo.</h3>
+						@endif
+						@if ($interes == 'compra')
+						<h3>Compra aquí.</h3>
+						@endif
 					</div>
+					<img src="{{ URL::to('/images/logo.png') }}" class="img-responsive pull-right" alt="">
+					<div class="clearfix"></div>
+					<p class="text-right">
+						<br>
+						Av. Jose Maria Plaza 270 - Jesús Maria<br>
+						(01) 423 - 1700 / (01) 423 - 1832<br>
+						<a href="https://www.laboutiquecatalogos.com/" target="_blank">www.laboutiquecatalogos.com</a><br>
+						Lima - Perú
+					</p>
 				</div>
 			</div>
-			@empty
-			<p>No se encontraron centros de distribucion en tu zona.</p>
-			@endforelse
-			@endif
-			@if ($interes == 'centro') :
-			<p>Mensaje para centro</p>
-			@endif
-			@if ($interes == 'compra') :
-			<p>Mensaje para compra</p>
-			@endif
-		</div>
+		</section>
 	</body>
 </html>

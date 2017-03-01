@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Sdely</title>
-		<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
 		<link href="{{ URL::to('/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 		<link href="{{ URL::to('/css/main.css') }}" rel="stylesheet" type="text/css">
 		<!--[if lt IE 9]>
@@ -76,12 +76,6 @@
 						</div>
 						<button type="submit" class="btn btn-default center-block">Enviar mis datos</button>
 					</form>
-				</div>
-			</div>
-					
-			<div class="row">
-				<div class="col-xs-12">
-
 				</div>
 			</div>
 		</section>
