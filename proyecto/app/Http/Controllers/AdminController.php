@@ -60,7 +60,9 @@ class AdminController extends Controller {
 	public function getCentros() {
 		$centros = DB::table('centros')
 				->join('ubigeo_departamento', 'centros.departamento', '=', 'ubigeo_departamento.id')
-				->select('centros.*', 'ubigeo_departamento.departamento')
+				->join('ubigeo_provincia', 'centros.provincia', '=', 'ubigeo_provincia.id')
+				->join('ubigeo_distrito', 'centros.distrito', '=', 'ubigeo_distrito.id')
+				->select('centros.*', 'ubigeo_departamento.departamento', 'ubigeo_provincia.provincia', 'ubigeo_distrito.distrito')
 				->get();
 		return view('admin.centros')->with('centros', $centros);
 	}
