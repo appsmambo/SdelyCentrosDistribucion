@@ -26,8 +26,8 @@
 						<br>
 					</p>
 					<div class="mensaje">
-						<h3>Centros de Distribución cerca a tu zona:</h3>
 						@if ($interes == 'promotora')
+						<h3>Centros de Distribución cerca a tu zona:</h3>
 						@forelse($centros as $centro)
 						<div class="panel panel-default">
 							<div class="panel-body">
@@ -46,7 +46,7 @@
 							</div>
 						</div>
 						@empty
-						<h3>No se encontraron centros de distribucion cerca a tu zona.</h3>
+						<h3>No se encontraron centros de distribucion en tu zona.</h3>
 						<p>
 							<strong>{{$empresa[0]->nombre}}</strong><br>
 							{{$empresa[0]->linea_1}}<br>
@@ -68,7 +68,7 @@
 						<h3>Si desea comprar un calzado directo del catalogo escribir a:</h3>
 						<p>
 							<a href="https://www.facebook.com/messages/t/164081846936428" target="_blank">
-								SDELY - Compra aquí tu zapato preferido.
+								Tiendas Sdely - Compra aquí tu zapato:
 							</a>
 						</p>
 						@endif

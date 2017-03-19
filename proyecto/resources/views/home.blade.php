@@ -29,10 +29,10 @@
 						{{ csrf_field() }}
 						<div class="form-group">
 							<select class="form-control" id="interes" name="interes" required>
-								<option value="">Estás interesada en:</option>
-								<option value="promotora">Promotora</option>
-								<option value="centro">Centro de distribbución</option>
-								<option value="compra">Compra de producto</option>
+								<option value="">Estás interesada(o) en:</option>
+								<option value="promotora">Promotor(a)</option>
+								<option value="centro">Centro de distribución</option>
+								<option value="compra">Compra de un producto</option>
 							</select>
 						</div>
 						<div class="form-group">
@@ -48,7 +48,7 @@
 							<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 						</div>
 						<div class="form-group">
-							<input type="tel" class="form-control" id="celular" name="celular" placeholder="Celular" required>
+							<input type="tel" class="form-control" id="celular" name="celular" placeholder="Celular" required minlength="9" maxlength="9">
 						</div>
 						<div class="form-group">
 							<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
