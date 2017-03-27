@@ -14,7 +14,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<script>
-			var baseUrl = '{{ URL::to('/') }}';
+			var baseUrl = '{{ URL::to(' / ') }}';
 		</script>
 	</head>
 	<body>
@@ -36,6 +36,8 @@
 						<th>Email</th>
 						<th>Celular</th>
 						<th>Departamento</th>
+						<th>Contactado</th>
+						<th>Afiliado</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -49,7 +51,33 @@
 						<td>{{$registro->email}}</td>
 						<td>{{$registro->celular}}</td>
 						<td>{{$registro->departamento}}</td>
-						<td><a data-registro="{{$loop->iteration}}" href="{{URL::to('/admin159753/registros-borrar')}}/{{$registro->id}}" class="borrar btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></td>
+						<td class="text-center">
+							<a href="{{URL::to('/admin159753/registros-contactado')}}/{{$registro->id}}/{{$registro->contactado === 0 ? 1 : 0 }}" 
+							   class="btn btn-info">
+								@if ($registro->contactado)
+								<i class="glyphicon glyphicon-check"></i>
+								@else
+								<i class="glyphicon glyphicon-unchecked"></i>
+								@endif
+							</a>
+						</td>
+						<td>
+							<a href="{{URL::to('/admin159753/registros-afiliado')}}/{{$registro->id}}/{{$registro->afiliado === 0 ? 1 : 0 }}" 
+							   class="btn btn-success">
+								@if ($registro->afiliado)
+								<i class="glyphicon glyphicon-check"></i>
+								@else
+								<i class="glyphicon glyphicon-unchecked"></i>
+								@endif
+							</a>
+						</td>
+						<td>
+							<a data-registro="{{$loop->iteration}}" 
+							   href="{{URL::to('/admin159753/registros-borrar')}}/{{$registro->id}}" 
+							   class="borrar btn btn-danger">
+								<i class="glyphicon glyphicon-trash"></i>
+							</a>
+						</td>
 					</tr>
 					@endforeach
 				</tbody>
@@ -60,16 +88,17 @@
 		<script src="{{ URL::to('/DataTables-1.10.13/js/jquery.dataTables.min.js') }}"></script>
 		<script src="{{ URL::to('/DataTables-1.10.13/js/dataTables.bootstrap.min.js') }}"></script>
 		<script>
-			$(function() {
+			$(function () {
 				$('#dataRegistros').DataTable({
 					"language": {
 						"url": baseUrl + "/DataTables-1.10.13/lang/Spanish.json"
 					}
 				});
-				$('.borrar').click(function() {
+				$('.borrar').click(function () {
 					var registro = $(this).data('registro');
 					var respuesta = confirm('Confirma borrar el registro: ' + registro);
-					if (!respuesta) return false;
+					if (!respuesta)
+						return false;
 				});
 			});
 		</script>

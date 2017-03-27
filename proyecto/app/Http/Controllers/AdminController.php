@@ -174,5 +174,19 @@ class AdminController extends Controller {
 		$registro->delete();
 		return redirect('admin159753/registros');
 	}
+	
+	public function getRegistrosContactado($id, $value = 0) {
+		$registro = Registro::find($id);
+		$registro->contactado = $value;
+		$registro->save();
+		return redirect('admin159753/registros');
+	}
+	
+	public function getRegistrosAfiliado($id, $value = 0) {
+		$registro = Registro::find($id);
+		$registro->afiliado = $value;
+		$registro->save();
+		return redirect('admin159753/registros');
+	}
 
 }
