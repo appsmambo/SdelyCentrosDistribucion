@@ -127,7 +127,6 @@ class AdminController extends Controller {
 		$registros = DB::table('registro')
 				->join('ubigeo_departamento', 'registro.id_departamento', '=', 'ubigeo_departamento.id')
 				->select('registro.*', 'ubigeo_departamento.departamento')
-				->take(20)
 				->orderBy('id', 'desc')
 				->get();
 		return view('admin.registros')->with('registros', $registros);
@@ -168,6 +167,12 @@ class AdminController extends Controller {
 				//$sheet->fromArray($registros);
 			});
 		})->export('xlsx');
+	}
+	
+	public function getRegistrosBorrar($id) {
+		$registro = Registro::find($id);
+		$registro->delete();
+		return redirect('admin159753/registros');
 	}
 
 }

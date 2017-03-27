@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin159753'], function () {
 	
 	Route::get('/registros', 'AdminController@getRegistros');
 	Route::get('/registros-export', 'AdminController@getRegistrosExport');
+	Route::get('/registros-borrar/{id}', 'AdminController@getRegistrosBorrar');
 	
 	Route::get('users', function () {
 		// Matches The "/admin/users" URL
