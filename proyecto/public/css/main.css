@@ -12,6 +12,12 @@ body.formulario {
 body.respuesta {
 	background:url('../images/fondo-respuesta.jpg') no-repeat center top
 }
+body.noSkin {
+	background:none
+}
+body.noSkin .container {
+	width:100%
+}
 label.error {
 	display:none!important
 }
@@ -34,6 +40,11 @@ strong {
 	padding:10px
 }
 
+@media (min-width: 768px) {
+	body.noSkin .container {
+		width:450px
+	}
+}
 @media (min-width: 992px) {
 	.container {
 		width:780px

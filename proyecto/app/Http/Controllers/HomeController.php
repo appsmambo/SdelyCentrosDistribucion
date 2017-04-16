@@ -16,5 +16,10 @@ class HomeController extends Controller {
 			->get();*/
 		return view('home')->with('departamentos', $departamentos);
 	}
+	
+	public function getHomeNoSkin() {
+		$departamentos = Departamento::all();
+		return view('home-noSkin')->with('departamentos', $departamentos);
+	}
 
 }

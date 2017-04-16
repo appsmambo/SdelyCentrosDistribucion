@@ -55,7 +55,13 @@ class RegistroController extends Controller {
 			$correos = implode(',', $correos);
 			$this->enviarMail($correos, $request);
 			
-			return view('mensaje')
+			$noSkin = $request->input('no-skin');
+			$vista = 'mensaje';
+			if ($noSkin) {
+				$vista = 'mensaje-noSkin';
+			}
+			
+			return view($vista)
 					->with('centros', $centros)
 					->with('interes', $request->input('interes'))
 					->with('empresa', $empresa);

@@ -3,6 +3,8 @@
 Route::get('/', 'HomeController@getHome');
 Route::post('/consultaDatos', 'RegistroController@postDatos');
 
+Route::get('/no-skin', 'HomeController@getHomeNoSkin');
+
 Route::group(['prefix' => 'admin159753'], function () {
 	Route::get('/', function () {
 		return view('admin.home');
